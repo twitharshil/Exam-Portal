@@ -1,0 +1,64 @@
+body{
+  overflow-y: hidden;
+}
+
+.img{
+    position: relative;
+    text-align: center;
+    color: white;
+    width: 100%;
+    height: auto;
+}
+.btn {
+    border: 5px solid black;
+    border-color: orange;
+    color: black;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    display: grid;
+    width: 200px;; 
+}
+.logoutLblPos{
+   position:fixed;
+   padding: 20px;
+   width: 100px;
+   right:10px;
+   top:5px;
+   color: red;
+}
+
+#nam{
+	
+	 position:fixed;
+     width: 300px;
+     right:100px;
+     top:20px;
+     color: white;
+}
+#msg{
+	 position:fixed;
+     width: 300px;
+     left:100px;
+     top:20px;
+     color: white;
+}
+/* Blue */
+.info {
+    border-color: rgb(105,105,105);
+    color: dodgerblue;
+    
+}
+
+.info:hover {
+    background: #2196F3;
+    color: white;
+}
+
+
+.container{
+    position: absolute;
+    top: 10%;
+    left: 20%;
+}
