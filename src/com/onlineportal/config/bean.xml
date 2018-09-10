@@ -1,0 +1,58 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+   http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    
+    <bean id="UserDelegate" class="com.onlineportal.delegate.UserDelegate">
+		<property name="userService" ref="userService"></property>
+	</bean>
+
+	<bean id="userService" class="com.onlineportal.service.UserServiceImpl">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+
+	<bean name="userDao" class="com.onlineportal.dao.UserDaoImpl">
+		<constructor-arg ref="jdbcTemplate"></constructor-arg>
+	</bean>
+	
+	<bean id="examdelegate" class="com.onlineportal.delegate.ExamDelegate">
+		<property name="examservice" ref="examservice"></property>
+	</bean>
+
+	<bean id="examservice" class="com.onlineportal.service.ExamServiceImpl">
+		<property name="examdao" ref="examdao"></property>
+	</bean>
+
+	<bean name="examdao" class="com.onlineportal.dao.ExamDaoImpl">
+		<constructor-arg ref="jdbcTemplate"></constructor-arg>
+	</bean>
+	
+	<bean id="Uploaddelegate" class="com.onlineportal.delegate.Uploaddelegate">
+		<property name="uploadqaservice" ref="uploadqaservice"></property>
+	</bean>
+
+	<bean id="uploadqaservice" class="com.onlineportal.service.UploadqaServiceImpl">
+		<property name="qadao" ref="qadao"></property>
+	</bean>
+
+	<bean name="qadao" class="com.onlineportal.dao.UploadqaDaoImpl">
+		<constructor-arg ref="jdbcTemplate"></constructor-arg>
+	</bean>
+	
+	<bean id = "jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+    
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    <property name="url" value="jdbc:mysql://localhost:3306/examportal"/>
+    <property name="username" value="root"/>
+    <property name="password" value="ikmpkaphi"/>
+    </bean>
+    
+</beans>
